@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Scientific Calculator - Full Test Suite" verbose="1" parallel="none">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseUrl" value="https://rbihubcodechallenge.github.io/calculator/index.html"/>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SMOKE / SANITY — run first, fast-fail if these break
+         ═══════════════════════════════════════════════════════ -->
+    <test name="Sanity Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.SanityTests"/>
+        </classes>
+    </test>
+
+    <!-- ═══════════════════════════════════════════════════════
+         REGRESSION — full functional coverage
+         ═══════════════════════════════════════════════════════ -->
+    <test name="Basic Arithmetic Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="arithmetic"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.BasicArithmeticTests"/>
+        </classes>
+    </test>
+
+    <test name="Scientific Function Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="scientific"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.ScientificFunctionTests"/>
+        </classes>
+    </test>
+
+    <test name="Edge Case Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="edge"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.EdgeCaseTests"/>
+        </classes>
+    </test>
+
+    <test name="Parentheses Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="parentheses"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.ParenthesesTests"/>
+        </classes>
+    </test>
+
+    <test name="Clear and Reset Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="clear"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.ClearFunctionTests"/>
+        </classes>
+    </test>
+
+    <test name="UI Display Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="ui"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.rbihub.calculator.tests.UIDisplayTests"/>
+        </classes>
+    </test>
+
+</suite>
